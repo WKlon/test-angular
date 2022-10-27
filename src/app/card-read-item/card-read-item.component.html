@@ -1,0 +1,14 @@
+<div *ngIf="card">
+  <td>{{ card.name }}</td>
+  <td>{{ card.startDate }}</td>
+  <td>{{ card.finishDate }}</td>
+  <td>{{ card.description }}</td>
+  <mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="replaceValue">
+      <mat-option>None</mat-option>
+      <mat-option value="up">up</mat-option>
+      <mat-option value="down">down</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

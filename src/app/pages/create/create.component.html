@@ -1,0 +1,8 @@
+<div class="create-main">
+  <app-card-list
+    (onDelete)="deleteCard($event)"
+    (onCopy)="copyCard($event)"
+    [cards]="CardList"
+  ></app-card-list>
+  <app-card-form (onAdd)="addCard($event)"></app-card-form>
+</div>

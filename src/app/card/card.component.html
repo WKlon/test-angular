@@ -1,0 +1,18 @@
+<div *ngIf="card" appCardStyle class="card-style">
+  <div class="card-info">
+    <span> {{ card.name }} </span>
+    <span> {{ card.startDate }}</span>
+    <span>{{ card.startTime }}</span>
+    <span> {{ card.finishDate }}</span>
+    <span>{{ card.finishTime }}</span>
+    <span> {{ card.description }}</span>
+  </div>
+  <div class="card-actions">
+    <button class="card-btn" mat-raised-button (click)="copyCard(card)">
+      Копировать
+    </button>
+    <button class="card-btn" mat-raised-button (click)="deleteCard(card)">
+      Удалить
+    </button>
+  </div>
+</div>

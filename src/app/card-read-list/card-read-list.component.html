@@ -1,0 +1,43 @@
+<mat-form-field appearance="fill">
+  <mat-label>Search</mat-label>
+  <input matInput type="text" placeholder="Search" [(ngModel)]="cardSearch" />
+</mat-form-field>
+<mat-form-field class="option-style" appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="searchValue">
+    <mat-option>None</mat-option>
+    <mat-option value="name">Name</mat-option>
+    <mat-option value="startDate">Date of begining</mat-option>
+    <mat-option value="finishDate">Date of finished</mat-option>
+    <mat-option value="description">Description</mat-option>
+  </mat-select>
+</mat-form-field>
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="name">Name</th>
+    <th mat-sort-header="startDate">Date of begining</th>
+    <th mat-sort-header="finishDate">Date of finished</th>
+    <th mat-sort-header="description">Description</th>
+  </tr>
+  <tr
+    *ngFor="
+      let card of cards | cardsFilter: cardSearch:searchValue;
+      let i = index
+    "
+  >
+    <td (click)="openInfo(card.id)">{{ card.name }}</td>
+    <td (click)="openInfo(card.id)">{{ card.startDate }}</td>
+    <td (click)="openInfo(card.id)">{{ card.finishDate }}</td>
+    <td (click)="openInfo(card.id)">{{ card.description }}</td>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select (valueChange)="replaceCard(i, $event)" [value]="test">
+          <mat-option value="replace">replace</mat-option>
+          <mat-option value="up">up</mat-option>
+          <mat-option value="down">down</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>

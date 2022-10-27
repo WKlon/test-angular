@@ -1,0 +1,27 @@
+<!-- <input type="text" [(ngModel)]="cardSearch" /> -->
+<mat-form-field appearance="fill">
+  <mat-label>Date of finish</mat-label>
+  <input matInput type="text" placeholder="Search" [(ngModel)]="cardSearch" />
+</mat-form-field>
+<mat-form-field class="option-style" appearance="fill">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="searchValue">
+    <mat-option>None</mat-option>
+    <mat-option value="name">Name</mat-option>
+    <mat-option value="startDate">Date of begining</mat-option>
+    <mat-option value="finishDate">Date of finished</mat-option>
+    <mat-option value="description">Description</mat-option>
+  </mat-select>
+</mat-form-field>
+<div class="cards-wrapper">
+  <div
+    class="card-wrapper"
+    *ngFor="let card of cards | cardsFilter: cardSearch:searchValue"
+  >
+    <app-card
+      (onDelete)="deleteCard($event)"
+      (onCopy)="copyCard($event)"
+      [card]="card"
+    ></app-card>
+  </div>
+</div>

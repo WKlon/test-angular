@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>Adding a card</h2>
+<mat-dialog-content>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Name"
+      [(ngModel)]="name"
+      [formControl]="vall"
+      required
+    />
+    <mat-error *ngIf="vall.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Date of begining</mat-label>
+    <input
+      matInput
+      type="date"
+      placeholder="Start Date"
+      [(ngModel)]="startDate"
+    />
+    <mat-error *ngIf="vall.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Time of begining</mat-label>
+    <input
+      matInput
+      type="time"
+      placeholder="Start Time"
+      [(ngModel)]="startTime"
+    />
+  </mat-form-field>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Time of finish</mat-label>
+    <input
+      matInput
+      type="date"
+      placeholder="Finish Date"
+      [(ngModel)]="finishDate"
+      required
+    />
+    <mat-error *ngIf="vall.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Date of finish</mat-label>
+    <input
+      matInput
+      type="time"
+      placeholder="Finish Time"
+      [(ngModel)]="finishTime"
+      required
+    />
+    <mat-error *ngIf="vall.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-input" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Description"
+      [(ngModel)]="description"
+      required
+    />
+    <mat-error *ngIf="vall.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>close</button>
+  <button mat-button mat-dialog-close (click)="onAdd()">add</button>
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px 0px;
+}
+.card-wrapper {
+  width: 45%;
+}
+.option-style {
+  margin-left: 20px;
+}
